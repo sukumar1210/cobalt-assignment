@@ -3,7 +3,23 @@
 import { oauth2Client } from "@/src/util";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import { json } from "stream/consumers";
+
+export const redirectToConsent = () => {
+  const scopes = [
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/userinfo.profile',
+    // 'https://www.googleapis.com/openid',
+  ];
+  
+  const url = oauth2Client.generateAuthUrl({
+    access_type: 'offline',
+    scope: scopes
+  });
+
+  redirect(url)
+  
+}
+
 
 
 export const getAuthToken = async (authCode:string ) => {
