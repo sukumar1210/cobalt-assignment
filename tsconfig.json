@@ -17,8 +17,13 @@
         "name": "next"
       }
     ],
+    "target": "es2015",
+    // or
+    // "downlevelIteration": true
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@actions/*": ["./src/actions/*"],
+      "@app/*": ["./app/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
